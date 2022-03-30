@@ -57,6 +57,8 @@ cvar_t	*c_minyaw;
 cvar_t	*c_maxdistance;
 cvar_t	*c_mindistance;
 
+cvar_t	*sv_cheats = NULL;
+
 // pitch, yaw, dist
 vec3_t cam_ofs;
 
@@ -145,6 +147,9 @@ void DLLEXPORT CAM_Think( void )
 	vec3_t camAngles;
 	float flSensitivity;
 	vec3_t viewangles;
+
+	if( ( sv_cheats && !sv_cheats->value ) && CL_IsThirdPerson() )
+		CAM_ToFirstPerson();
 
 	switch( (int) cam_command->value )
 	{
@@ -363,9 +368,8 @@ void CAM_ToThirdPerson(void)
 	vec3_t viewangles;
 
 #if !defined( _DEBUG )
-	if ( gEngfuncs.GetMaxClients() > 1 )
+	if ( sv_cheats && !sv_cheats->value )
 	{
-		// no thirdperson in multiplayer.
 		return;
 	}
 #endif
@@ -431,6 +435,8 @@ void CAM_Init( void )
 	c_minyaw				= gEngfuncs.pfnRegisterVariable ( "c_minyaw",   "-135.0", 0 );
 	c_maxdistance			= gEngfuncs.pfnRegisterVariable ( "c_maxdistance",   "200.0", 0 );
 	c_mindistance			= gEngfuncs.pfnRegisterVariable ( "c_mindistance",   "30.0", 0 );
+
+	sv_cheats			= gEngfuncs.pfnGetCvarPointer( "sv_cheats" );
 }
 
 void CAM_ClearStates( void )

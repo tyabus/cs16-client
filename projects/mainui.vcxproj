@@ -22,6 +22,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\mainui\basemenu.cpp" />
+    <ClCompile Include="..\mainui\legacy\menu_playdemo.cpp" />
+    <ClCompile Include="..\mainui\legacy\menu_playrec.cpp" />
+    <ClCompile Include="..\mainui\legacy\menu_recdemo.cpp" />
     <ClCompile Include="..\mainui\menu_advcontrols.cpp" />
     <ClCompile Include="..\mainui\menu_audio.cpp" />
     <ClCompile Include="..\mainui\menu_btns.cpp" />
@@ -41,8 +44,6 @@
     <ClCompile Include="..\mainui\menu_touchbuttons.cpp" />
     <ClCompile Include="..\mainui\menu_touchedit.cpp" />
     <ClCompile Include="..\mainui\menu_touchoptions.cpp" />
-    <ClCompile Include="..\mainui\menu_video.cpp" />
-    <ClCompile Include="..\mainui\menu_vidmodes.cpp" />
     <ClCompile Include="..\mainui\menu_vidoptions.cpp" />
     <ClCompile Include="..\mainui\udll_int.cpp" />
     <ClCompile Include="..\mainui\ui_title_anim.cpp" />
@@ -57,13 +58,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>

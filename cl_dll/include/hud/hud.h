@@ -254,7 +254,7 @@ public:
 	CHudMsgFunc(Train);
 
 private:
-	HSPRITE m_hSprite;
+	_HSPRITE m_hSprite;
 	int m_iPos;
 
 };
@@ -647,7 +647,7 @@ private:
 	typedef struct
 	{
 		char szSpriteName[MAX_ICONSPRITENAME_LENGTH];
-		HSPRITE spr;
+		_HSPRITE spr;
 		wrect_t rc;
 		unsigned char r, g, b;
 		unsigned char secR, secG, secB;
@@ -856,7 +856,7 @@ public:
 	void AddHudElem(CHudBase *p);
 
 	inline float GetSensitivity() { return m_flMouseSensitivity; }
-	inline HSPRITE GetSprite( int index )
+	inline _HSPRITE GetSprite( int index )
 	{
 		assert( index >= -1 && index <= m_iSpriteCount );
 
@@ -935,7 +935,7 @@ public:
 	cvar_t *cl_android_force_defaults;
 #endif
 
-	HSPRITE m_hGasPuff;
+	_HSPRITE m_hGasPuff;
 
 	int m_iFontHeight;
 	CHudAmmo        m_Ammo;
@@ -993,7 +993,7 @@ public:
 
 private:
 	HUDLIST	*m_pHudList;
-	HSPRITE	m_hsprLogo;
+	_HSPRITE	m_hsprLogo;
 	int	m_iLogo;
 	client_sprite_t	*m_pSpriteList;
 	int	m_iSpriteCount;
@@ -1007,7 +1007,7 @@ private:
 
 	// the memory for these arrays are allocated in the first call to CHud::VidInit(), when the hud.txt and associated sprites are loaded.
 	// freed in ~CHud()
-	HSPRITE *m_rghSprites;	/*[HUD_SPRITE_COUNT]*/			// the sprites loaded from hud.txt
+	_HSPRITE *m_rghSprites;	/*[HUD_SPRITE_COUNT]*/			// the sprites loaded from hud.txt
 	wrect_t *m_rgrcRects;	/*[HUD_SPRITE_COUNT]*/
 	char *m_rgszSpriteNames; /*[HUD_SPRITE_COUNT][MAX_SPRITE_NAME_LENGTH]*/
 };

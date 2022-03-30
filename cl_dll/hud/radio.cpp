@@ -37,6 +37,8 @@ DECLARE_MESSAGE( m_Radio, SendAudio )
 DECLARE_MESSAGE( m_Radio, ReloadSound )
 DECLARE_MESSAGE( m_Radio, BotVoice )
 
+vec3_t vec3_origin;
+
 int CHudRadio::Init( )
 {
 	HOOK_MESSAGE( SendAudio );

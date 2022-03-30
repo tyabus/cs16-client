@@ -62,7 +62,7 @@ void Localize_Init( )
 	const char *gamedir = gEngfuncs.pfnGetGameDirectory( );
 
 	char filename[64];
-	snprintf( filename, sizeof( filename ), "%s/resource/%s_english.txt", gamedir, gamedir );
+	_snprintf( filename, sizeof( filename ), "%s/resource/%s_english.txt", gamedir, gamedir );
 
 #ifndef OPENBINARY
 	FILE *wf = fopen( filename, "r" );

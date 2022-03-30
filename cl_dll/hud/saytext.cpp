@@ -227,17 +227,17 @@ int CHudSayText :: MsgFunc_SayText( const char *pszName, int iSize, void *pbuf )
 	char dst[256];
 	if( i == CHAT_NAME_CHANGE )
 	{
-		snprintf( dst, sizeof( dst ), fmt, szBuf[1], szBuf[2]);
+		_snprintf(dst, sizeof(dst), fmt, szBuf[1], szBuf[2]);
 	}
 	else if( szBuf[1][0] == '\0' && szBuf[2][0] == '\0' )
 	{
-		snprintf( dst, sizeof( dst ), fmt, szBuf[0] );
+		_snprintf(dst, sizeof(dst), fmt, szBuf[0]);
 	}
 	else
 	{
 		GetPlayerInfo( client_index, &g_PlayerInfoList[client_index] );
 		const char *pName = g_PlayerInfoList[client_index].name;
-		snprintf( dst, sizeof( dst ), fmt, pName, szBuf[2]);
+		_snprintf( dst, sizeof(dst), fmt, pName, szBuf[2] );
 	}
 	SayTextPrint( dst, strlen(dst),  client_index );
 	

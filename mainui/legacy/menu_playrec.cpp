@@ -18,11 +18,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "extdll.h"
-#include "basemenu.h"
-#include "utils.h"
+#include "../extdll.h"
+#include "../basemenu.h"
+#include "../utils.h"
 
-#include "menu_btnsbmp_table.h"
+#include "../menu_btnsbmp_table.h"
 
 #define ART_BANNER		"gfx/shell/head_saveload"
 

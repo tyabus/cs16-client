@@ -210,7 +210,7 @@ int CHudTextMessage::MsgFunc_TextMsg( const char *pszName, int iSize, void *pbuf
 	{
 	case HUD_PRINTCENTER:
 	{
-		snprintf( psz, MAX_TEXTMSG_STRING, msg_text, sstr1, sstr2, sstr3, sstr4 );
+		_snprintf( psz, MAX_TEXTMSG_STRING, msg_text, sstr1, sstr2, sstr3, sstr4 );
 
 		/*ConvertCRtoNL( psz );
 
@@ -223,18 +223,18 @@ int CHudTextMessage::MsgFunc_TextMsg( const char *pszName, int iSize, void *pbuf
 	}
 	case HUD_PRINTNOTIFY:
 		psz[0] = 1;  // mark this message to go into the notify buffer
-		snprintf( psz+1, MAX_TEXTMSG_STRING - 1, msg_text, sstr1, sstr2, sstr3, sstr4 );
+		_snprintf( psz+1, MAX_TEXTMSG_STRING - 1, msg_text, sstr1, sstr2, sstr3, sstr4 );
 		ConsolePrint( ConvertCRtoNL( psz ) );
 		break;
 
 	case HUD_PRINTTALK:
 		psz[0] = 2; // mark, so SayTextPrint will color it
-		snprintf( psz+1, MAX_TEXTMSG_STRING-1, msg_text, sstr1, sstr2, sstr3, sstr4 );
+		_snprintf( psz+1, MAX_TEXTMSG_STRING-1, msg_text, sstr1, sstr2, sstr3, sstr4 );
 		gHUD.m_SayText.SayTextPrint( ConvertCRtoNL( psz ), 128 );
 		break;
 
 	case HUD_PRINTCONSOLE:
-		snprintf( psz, MAX_TEXTMSG_STRING, msg_text, sstr1, sstr2, sstr3, sstr4 );
+		_snprintf( psz, MAX_TEXTMSG_STRING, msg_text, sstr1, sstr2, sstr3, sstr4 );
 		ConsolePrint( ConvertCRtoNL( psz ) );
 		break;
 
@@ -245,7 +245,7 @@ int CHudTextMessage::MsgFunc_TextMsg( const char *pszName, int iSize, void *pbuf
 			if( g_PlayerInfoList[i].name && !strncmp(g_PlayerInfoList[i].name, sstr2, strlen(sstr2)) )
 			{
 				psz[0] = 2;
-				snprintf( psz + 1, MAX_TEXTMSG_STRING-1, sstr1, sstr2, sstr3, sstr4 );
+				_snprintf( psz + 1, MAX_TEXTMSG_STRING-1, sstr1, sstr2, sstr3, sstr4 );
 				gHUD.m_SayText.SayTextPrint( ConvertCRtoNL( psz ), 128, i );
 				break;
 			}

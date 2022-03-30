@@ -26,6 +26,10 @@
 #include "cl_util.h"
 #include <string.h>
 
+#ifdef _MSC_VER
+#include <ctype.h>
+#endif
+
 #ifndef M_PI
 #define M_PI		3.14159265358979323846	// matches value in gcc v2 math.h
 #endif
@@ -50,7 +54,33 @@ float rsqrt( float number )
 
 	return y;
 }
-/* // defined in pm_math.cpp
+#ifdef _MSC_VER
+char *strcasestr(const char *str, const char *pattern)
+{
+	size_t i;
+
+	if (!*pattern)
+		return (char*)str;
+
+	for (; *str; str++) 
+	{
+		if (toupper((unsigned char)*str) == toupper((unsigned char)*pattern)) 
+		{
+			for (i = 1;; i++) 
+			{
+				if (!pattern[i])
+					return (char*)str;
+					
+				if (toupper((unsigned char)str[i]) != toupper((unsigned char)pattern[i]))
+					break;
+			}
+		}
+	}
+	return NULL;
+}
+#endif
+
+// defined in pm_math.cpp
 float Length(const float *v)
 {
 	int		i;
@@ -110,33 +140,44 @@ float VectorNormalize (float *v)
 
 }
 
-void VectorInverse ( float *v )
+void NormalizeAngles(float *angles)
 {
-	v[0] = -v[0];
-	v[1] = -v[1];
-	v[2] = -v[2];
-}
-void VectorScale (const float *in, float scale, float *out)
-{
-	out[0] = in[0]*scale;
-	out[1] = in[1]*scale;
-	out[2] = in[2]*scale;
+	int i;
+	// Normalize angles
+	for (i = 0; i < 3; ++i)
+	{
+		if (angles[i] > 180.0)
+		{
+			angles[i] -= 360.0;
+		}
+		else if (angles[i] < -180.0)
+		{
+			angles[i] += 360.0;
+		}
+	}
 }
 
-void VectorMA (const float *veca, float scale, const float *vecb, float *vecc)
+// defined in pm_math.cpp
+void CrossProduct(const float *v1, const float *v2, float *cross)
 {
-	vecc[0] = veca[0] + scale*vecb[0];
-	vecc[1] = veca[1] + scale*vecb[1];
-	vecc[2] = veca[2] + scale*vecb[2];
+	cross[0] = v1[1] * v2[2] - v1[2] * v2[1];
+	cross[1] = v1[2] * v2[0] - v1[0] * v2[2];
+	cross[2] = v1[0] * v2[1] - v1[1] * v2[0];
 }
-*/
+
+void VectorTransform(const vec_t *in1, float(*in2)[4], vec_t *out)
+{
+	out[0] = DotProduct(in1, in2[0]) + in2[0][3];
+	out[1] = DotProduct(in1, in2[1]) + in2[1][3];
+	out[2] = DotProduct(in1, in2[2]) + in2[2][3];
+}
 
 int HUD_GetSpriteIndexByName( const char *sz )
 {
 	return gHUD.GetSpriteIndex(sz);
 }
 
-HSPRITE HUD_GetSprite( int index )
+_HSPRITE HUD_GetSprite( int index )
 {
 	return gHUD.GetSprite(index);
 }

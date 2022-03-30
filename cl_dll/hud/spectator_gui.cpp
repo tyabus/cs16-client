@@ -259,7 +259,7 @@ void CHudSpectatorGui::CalcAllNeededData( )
 		const char *szMapName = gEngfuncs.pfnGetLevelName(); //  "maps/%s.bsp"
 		strncpy( szMapNameStripped, szMapName + 5, sizeof( szMapNameStripped ) );
 		szMapNameStripped[strlen(szMapNameStripped) - 4] = '\0';
-		snprintf( label.m_szMap, sizeof( label.m_szMap ), "Map: %s", szMapNameStripped );
+		_snprintf( label.m_szMap, sizeof( label.m_szMap ), "Map: %s", szMapNameStripped );
 	}
 
 	// team
@@ -310,7 +310,7 @@ void CHudSpectatorGui::CalcAllNeededData( )
 		hud_player_info_t sInfo;
 		GetPlayerInfo( g_iUser2, &sInfo );
 
-		snprintf( label.m_szNameAndHealth, sizeof( label.m_szNameAndHealth ),
+		_snprintf( label.m_szNameAndHealth, sizeof( label.m_szNameAndHealth ),
 				  "%s (%i)",  sInfo.name, g_PlayerExtraInfo[g_iUser2].health );
 	}
 	else label.m_szNameAndHealth[0] = '\0';

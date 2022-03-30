@@ -126,8 +126,8 @@ private:
 	void UpdateTiles( float fTime, long bits );
 	void DrawPlayerLocation( void );
 
-	HSPRITE m_hSprite;
-	HSPRITE m_hDamage;
+	_HSPRITE m_hSprite;
+	_HSPRITE m_hDamage;
 	Vector2D m_vAttackPos[4];
 	DAMAGE_IMAGE m_dmg[NUM_DMG_TYPES];
 	float m_flTimeFlash;

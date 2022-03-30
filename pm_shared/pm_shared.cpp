@@ -52,6 +52,8 @@ char pm_grgchTextureType[1024];
 playermove_t *pmove = NULL;
 int g_onladder = 0;
 
+extern void _CrossProduct(const vec_t *v1, const vec_t *v2, vec_t *cross); // from pm_math.cpp
+
 void PM_SwapTextures(int i, int j)
 {
 	char chTemp;
@@ -841,7 +843,7 @@ int PM_FlyMove()
 					break;
 				}
 
-				CrossProduct(planes[0], planes[1], dir);
+				_CrossProduct(planes[0], planes[1], dir);
 				d = DotProduct(dir, pmove->velocity);
 				VectorScale(dir, d, pmove->velocity);
 			}
@@ -2044,7 +2046,7 @@ void PM_LadderMove(physent_t *pLadder)
 				VectorClear(tmp);
 				tmp[2] = 1;
 
-				CrossProduct(tmp, trace.plane.normal, perp);
+				_CrossProduct(tmp, trace.plane.normal, perp);
 				VectorNormalize(perp);
 
 				// decompose velocity into ladder plane
@@ -2060,7 +2062,7 @@ void PM_LadderMove(physent_t *pLadder)
 				// NOTE: It IS possible to face up and move down or face down and move up
 				// because the velocity is a sum of the directional velocity and the converted
 				// velocity through the face of the ladder -- by design.
-				CrossProduct(trace.plane.normal, perp, tmp);
+				_CrossProduct(trace.plane.normal, perp, tmp);
 				VectorMA(lateral, -normal, tmp, pmove->velocity);
 
 				// On ground moving away from the ladder

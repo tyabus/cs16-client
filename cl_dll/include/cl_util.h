@@ -27,6 +27,11 @@ extern cvar_t *hud_textmode;
 #ifdef _MSC_VER
 #pragma warning(disable : 4244) // 'argument': conversion from 'float' to 'int', possible loss of data
 #pragma warning(disable : 4101) // unreferenced local variable
+
+char *strcasestr(const char *str, const char *pattern); // util.cpp
+
+#define strncasecmp _strnicmp
+#define strcasecmp _stricmp
 #endif
 
 // Macros to hook function calls into the HUD object
@@ -95,11 +100,11 @@ inline struct cvar_s *CVAR_CREATE( const char *cv, const char *val, const int fl
 extern float color[3]; // hud.cpp
 
 // Gets the height & width of a sprite,  at the specified frame
-inline int SPR_Height( HSPRITE x, int f )
+inline int SPR_Height( _HSPRITE x, int f )
 {
 	return gEngfuncs.pfnSPR_Height(x, f);
 }
-inline int SPR_Width( HSPRITE x, int f )
+inline int SPR_Width( _HSPRITE x, int f )
 {
 	return gEngfuncs.pfnSPR_Width(x, f);
 }
@@ -153,10 +158,10 @@ extern vec3_t vec3_origin;
 #endif
 
 float *GetClientColor( int clientIndex );
-inline HSPRITE LoadSprite(const char *pszName)
+inline _HSPRITE LoadSprite(const char *pszName)
 {
 	char sz[256];
-	snprintf(sz, 256, pszName, 640);
+	_snprintf(sz, 256, pszName, 640);
 
 	return SPR_Load(sz);
 }

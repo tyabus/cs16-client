@@ -167,7 +167,7 @@ int CHudScoreboard :: DrawScoreboard( float fTime )
 	int ypos = ystart + (list_slot * ROW_GAP) + 5;
 
 	if( gHUD.m_szServerName[0] )
-		snprintf( ServerName, 80, "%s SERVER: %s", (char*)(gHUD.m_Teamplay ? "TEAMS" : "PLAYERS"), gHUD.m_szServerName );
+		_snprintf(ServerName, 80, "%s SERVER: %s", (char*)(gHUD.m_Teamplay ? "TEAMS" : "PLAYERS"), gHUD.m_szServerName);
 	else
 		strncpy( ServerName, gHUD.m_Teamplay ? "TEAMS" : "PLAYERS", 80 );
 
@@ -303,11 +303,11 @@ int CHudScoreboard :: DrawTeams( float list_slot )
 		switch( team_info->teamnumber )
 		{
 		case TEAM_TERRORIST:
-			snprintf(teamName, sizeof(teamName), "Terrorists   -   %i players", team_info->players);
+			_snprintf(teamName, sizeof(teamName), "Terrorists   -   %i players", team_info->players);
 			DrawUtils::DrawHudNumberString( KILLS_POS_END(),  ypos, KILLS_POS_START(),  team_info->frags,  r, g, b );
 			break;
 		case TEAM_CT:
-			snprintf(teamName, sizeof(teamName), "Counter-Terrorists   -   %i players", team_info->players);
+			_snprintf(teamName, sizeof(teamName), "Counter-Terrorists   -   %i players", team_info->players);
 			DrawUtils::DrawHudNumberString( KILLS_POS_END(),  ypos, KILLS_POS_START(),  team_info->frags,  r, g, b );
 			break;
 		case TEAM_SPECTATOR:

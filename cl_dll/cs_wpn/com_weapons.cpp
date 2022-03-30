@@ -80,16 +80,15 @@ HUD_SendWeaponAnim
 Change weapon model animation
 =====================
 */
-void HUD_SendWeaponAnim( int iAnim, int body, int force )
+void HUD_SendWeaponAnim(int iAnim, int iWeaponId, int iBody, int iForce)
 {
-	// Don't actually change it.
-	if ( !g_runfuncs && !force )
+	if ( !g_runfuncs && !iForce )
 		return;
 
 	g_currentanim = iAnim;
 
 	// Tell animation system new info
-	gEngfuncs.pfnWeaponAnim( iAnim, body );
+	gEngfuncs.pfnWeaponAnim( iAnim, iBody );
 }
 
 /*
@@ -160,10 +159,10 @@ Always 0.0 on client, even if not predicting weapons ( won't get called
  in that case )
 =====================
 */
-float UTIL_WeaponTimeBase( void )
+/*float UTIL_WeaponTimeBase( void )
 {
 	return 0.0;
-}
+}*/
 
 static unsigned int glSeed = 0; 
 

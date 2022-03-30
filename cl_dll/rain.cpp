@@ -62,9 +62,9 @@ struct
 	int fxcounter;
 	float heightFromPlayer;
 
-	HSPRITE hsprRain;
-	HSPRITE hsprSnow;
-	HSPRITE hsprRipple;
+	_HSPRITE hsprRain;
+	_HSPRITE hsprSnow;
+	_HSPRITE hsprRipple;
 } Rain;
 
 static bool initialized = false;

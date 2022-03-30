@@ -14,11 +14,10 @@
     <ClCompile Include="..\cl_dll\cdll_int.cpp" />
     <ClCompile Include="..\cl_dll\cs_wpn\com_weapons.cpp" />
     <ClCompile Include="..\cl_dll\cs_wpn\cs_baseentity.cpp" />
-    <ClCompile Include="..\cl_dll\cs_wpn\cs_objects.cpp" />
     <ClCompile Include="..\cl_dll\cs_wpn\cs_weapons.cpp" />
     <ClCompile Include="..\cl_dll\demo.cpp" />
+    <ClCompile Include="..\cl_dll\draw_util.cpp" />
     <ClCompile Include="..\cl_dll\entity.cpp" />
-    <ClCompile Include="..\cl_dll\events.cpp" />
     <ClCompile Include="..\cl_dll\events\event_ak47.cpp" />
     <ClCompile Include="..\cl_dll\events\event_aug.cpp" />
     <ClCompile Include="..\cl_dll\events\event_awp.cpp" />
@@ -75,16 +74,15 @@
     <ClCompile Include="..\cl_dll\hud\saytext.cpp" />
     <ClCompile Include="..\cl_dll\hud\scoreboard.cpp" />
     <ClCompile Include="..\cl_dll\hud\sniperscope.cpp" />
+    <ClCompile Include="..\cl_dll\hud\spectator_gui.cpp" />
     <ClCompile Include="..\cl_dll\hud\statusbar.cpp" />
     <ClCompile Include="..\cl_dll\hud\status_icons.cpp" />
     <ClCompile Include="..\cl_dll\hud\text_message.cpp" />
     <ClCompile Include="..\cl_dll\hud\timer.cpp" />
     <ClCompile Include="..\cl_dll\hud\train.cpp" />
     <ClCompile Include="..\cl_dll\input.cpp" />
-    <ClCompile Include="..\cl_dll\inputw32.cpp" />
+    <ClCompile Include="..\cl_dll\input_xash3d.cpp" />
     <ClCompile Include="..\cl_dll\in_camera.cpp" />
-    <ClCompile Include="..\cl_dll\overview.cpp" />
-    <ClCompile Include="..\cl_dll\parsemsg.cpp" />
     <ClCompile Include="..\cl_dll\rain.cpp" />
     <ClCompile Include="..\cl_dll\studio\GameStudioModelRenderer.cpp" />
     <ClCompile Include="..\cl_dll\studio\StudioModelRenderer.cpp" />
@@ -124,9 +122,9 @@
     <ClCompile Include="..\dlls\wpn_shared\wpn_ump45.cpp" />
     <ClCompile Include="..\dlls\wpn_shared\wpn_usp.cpp" />
     <ClCompile Include="..\dlls\wpn_shared\wpn_xm1014.cpp" />
-    <ClCompile Include="..\pm_shared\pm_debug.c" />
-    <ClCompile Include="..\pm_shared\pm_math.c" />
-    <ClCompile Include="..\pm_shared\pm_shared.c" />
+    <ClCompile Include="..\pm_shared\pm_debug.cpp" />
+    <ClCompile Include="..\pm_shared\pm_math.cpp" />
+    <ClCompile Include="..\pm_shared\pm_shared.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\cl_dll\include\camera.h" />
@@ -169,14 +167,14 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>NotSet</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>NotSet</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">

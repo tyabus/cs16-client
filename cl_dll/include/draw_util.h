@@ -57,7 +57,7 @@ public:
 								int r, int g, int b, float scale = 0.0f )
 	{
 		char szString[16];
-		snprintf( szString, sizeof(szString), "%d", iNumber );
+		_snprintf( szString, sizeof(szString), "%d", iNumber );
 		return DrawHudStringReverse( xpos, ypos, iMinX, szString, r, g, b, scale );
 	}
 

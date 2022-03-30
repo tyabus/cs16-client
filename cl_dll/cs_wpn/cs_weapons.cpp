@@ -70,7 +70,6 @@ static globalvars_t	Globals = { };
 
 static CBasePlayerWeapon *g_pWpns[ 32 ];
 
-
 // CS Weapon placeholder entities
 static CAK47 g_AK47;
 static CAUG g_AUG;

@@ -30,15 +30,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\pm_shared\pm_debug.c">
-      <Filter>src\pm</Filter>
-    </ClCompile>
-    <ClCompile Include="..\pm_shared\pm_math.c">
-      <Filter>src\pm</Filter>
-    </ClCompile>
-    <ClCompile Include="..\pm_shared\pm_shared.c">
-      <Filter>src\pm</Filter>
-    </ClCompile>
     <ClCompile Include="..\cl_dll\events\ev_cs16.cpp">
       <Filter>src\events</Filter>
     </ClCompile>
@@ -148,9 +139,6 @@
       <Filter>src\cs</Filter>
     </ClCompile>
     <ClCompile Include="..\cl_dll\cs_wpn\cs_baseentity.cpp">
-      <Filter>src\cs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\cl_dll\cs_wpn\cs_objects.cpp">
       <Filter>src\cs</Filter>
     </ClCompile>
     <ClCompile Include="..\cl_dll\cs_wpn\cs_weapons.cpp">
@@ -342,22 +330,10 @@
     <ClCompile Include="..\cl_dll\ev_common.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\cl_dll\events.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\cl_dll\in_camera.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\cl_dll\input.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\cl_dll\inputw32.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\cl_dll\overview.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\cl_dll\parsemsg.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\cl_dll\rain.cpp">
@@ -376,6 +352,24 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\cl_dll\view.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\hud\spectator_gui.cpp">
+      <Filter>src\hud</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\draw_util.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_debug.cpp">
+      <Filter>src\pm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_math.cpp">
+      <Filter>src\pm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pm_shared\pm_shared.cpp">
+      <Filter>src\pm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cl_dll\input_xash3d.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

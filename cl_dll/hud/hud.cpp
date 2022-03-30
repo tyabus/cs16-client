@@ -119,7 +119,7 @@ char *Q_buildnum( void )
 	b -= 41940; // Oct 29 2015.
 	// Happy birthday, cs16client! :)
 
-	snprintf( buildnum, sizeof(buildnum), "%i", b );
+	_snprintf( buildnum, sizeof(buildnum), "%i", b );
 
 	return buildnum;
 }
@@ -347,7 +347,7 @@ void CHud :: VidInit( void )
 			}
 
 			// allocated memory for sprite handle arrays
-			m_rghSprites      = new(std::nothrow) HSPRITE[m_iSpriteCount];
+			m_rghSprites      = new(std::nothrow) _HSPRITE[m_iSpriteCount];
 			m_rgrcRects       = new(std::nothrow) wrect_t[m_iSpriteCount];
 			m_rgszSpriteNames = new(std::nothrow) char[m_iSpriteCount * MAX_SPRITE_NAME_LENGTH];;
 

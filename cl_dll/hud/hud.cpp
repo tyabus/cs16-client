@@ -197,7 +197,7 @@ void CHud :: Init( void )
 	zoom_sens_ratio = CVAR_CREATE( "zoom_sensitivity_ratio", "1.2", 0 );
 	sv_skipshield = gEngfuncs.pfnGetCvarPointer( "sv_skipshield" );
 
-	CVAR_CREATE( "cscl_ver", Q_buildnum(), 1<<14 | FCVAR_USERINFO ); // init and userinfo
+	CVAR_CREATE( "cscl_ver", Q_buildnum(), FCVAR_INIT | FCVAR_USERINFO ); // init and userinfo
 
 	m_iLogo = 0;
 	m_iFOV = 0;

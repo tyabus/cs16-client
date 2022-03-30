@@ -246,7 +246,7 @@ add_library (${CLDLL_LIBRARY} SHARED ${CLDLL_SOURCES})
 add_definitions( -D_CS16CLIENT_ENABLE_GSRC_SUPPORT
 	-DLINUX -D_LINUX -DCLIENT_WEAPONS -DCLIENT_DLL
 	-D_DEBUG  -D_CS16CLIENT_ALLOW_SPECIAL_SCRIPTING
-	-Dstricmp=strcasecmp -D_strnicmp=strncasecmp -Dstrnicmp=strncasecmp )
+	-Dstricmp=strcasecmp -D_strnicmp=strncasecmp -Dstrnicmp=strncasecmp -D_snprintf=snprintf )
 
 target_link_libraries( ${CLDLL_LIBRARY} ${CMAKE_DL_LIBS} ${SDL2_LIBRARY} )
 

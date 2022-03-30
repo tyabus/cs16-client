@@ -81,95 +81,11 @@ char *strcasestr(const char *str, const char *pattern)
 #endif
 
 // defined in pm_math.cpp
-float Length(const float *v)
-{
-	int		i;
-	float	length;
-	
-	length = 0;
-	for (i=0 ; i< 3 ; i++)
-		length += v[i]*v[i];
-	length = sqrt (length);		// FIXME
-
-	return length;
-}
-void VectorAngles( const float *forward, float *angles )
-{
-	float	tmp, yaw, pitch;
-	
-	if (forward[1] == 0 && forward[0] == 0)
-	{
-		yaw = 0;
-		if (forward[2] > 0)
-			pitch = 90;
-		else
-			pitch = 270;
-	}
-	else
-	{
-		yaw = (atan2(forward[1], forward[0]) * 180 / M_PI);
-		if (yaw < 0)
-			yaw += 360;
-
-		tmp = sqrt (forward[0]*forward[0] + forward[1]*forward[1]);
-		pitch = (atan2(forward[2], tmp) * 180 / M_PI);
-		if (pitch < 0)
-			pitch += 360;
-	}
-	
-	angles[0] = pitch;
-	angles[1] = yaw;
-	angles[2] = 0;
-}
-
-float VectorNormalize (float *v)
-{
-	float	length;
-
-	length = v[0]*v[0] + v[1]*v[1] + v[2]*v[2];
-	length = rsqrt (length);
-
-	if (length)
-	{
-		v[0] *= length;
-		v[1] *= length;
-		v[2] *= length;
-	}
-
-	return length;
-
-}
-
-void NormalizeAngles(float *angles)
-{
-	int i;
-	// Normalize angles
-	for (i = 0; i < 3; ++i)
-	{
-		if (angles[i] > 180.0)
-		{
-			angles[i] -= 360.0;
-		}
-		else if (angles[i] < -180.0)
-		{
-			angles[i] += 360.0;
-		}
-	}
-}
-
-// defined in pm_math.cpp
 void CrossProduct(const float *v1, const float *v2, float *cross)
 {
 	cross[0] = v1[1] * v2[2] - v1[2] * v2[1];
 	cross[1] = v1[2] * v2[0] - v1[0] * v2[2];
 	cross[2] = v1[0] * v2[1] - v1[1] * v2[0];
-}
-
-void VectorTransform(const vec_t *in1, float(*in2)[4], vec_t *out)
-{
-	out[0] = DotProduct(in1, in2[0]) + in2[0][3];
-	out[1] = DotProduct(in1, in2[1]) + in2[1][3];
-	out[2] = DotProduct(in1, in2[2]) + in2[2][3];
 }
 
 int HUD_GetSpriteIndexByName( const char *sz )

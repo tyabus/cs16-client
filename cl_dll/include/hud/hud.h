@@ -915,7 +915,6 @@ public:
 	int		m_iRes;
 	cvar_t *m_pCvarDraw;
 	cvar_t *cl_shadows;
-	cvar_t *fastsprites;
 	cvar_t *cl_predict;
 	cvar_t *cl_weapon_wallpuff;
 	cvar_t *cl_weapon_sparks;

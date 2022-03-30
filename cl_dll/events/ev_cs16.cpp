@@ -440,18 +440,10 @@ void EV_CS16Client_CreateSmoke(int type, Vector origin, Vector dir, int speed, f
 	switch( type )
 	{
 	case SMOKE_WALLPUFF:
-		if( !gHUD.fastsprites->value )
-		{
-			strcpy( path, "sprites/wall_puff1.spr" );
+		strcpy( path, "sprites/wall_puff1.spr" );
+		path[17] += Com_RandomLong(0, 3); // randomize a bit
 
-			path[17] += Com_RandomLong(0, 3); // randomize a bit
-		}
-		else
-		{
-			strcpy( path, "sprites/fast_wallpuff1.spr" );
-			te = gEngfuncs.pEfxAPI->R_DefaultSprite( origin,
-								gEngfuncs.pEventAPI->EV_FindModelIndex("sprites/fast_wallpuff1.spr"), 30.0f );
-		}
+
 		break;
 	case SMOKE_RIFLE:
 		strcpy( path, "sprites/rifle_smoke1.spr" );
@@ -533,35 +525,6 @@ void EV_HLDM_DecalGunshot(pmtrace_t *pTrace, int iBulletType, float scale, int r
 		// create wallpuff
 		if( gHUD.cl_weapon_wallpuff && gHUD.cl_weapon_wallpuff->value && bCreateWallPuff )
 		{
-			/*TEMPENTITY *te = NULL;
-			if( gHUD.fastsprites && !gHUD.fastsprites->value )
-			{
-				char path[] = "sprites/wall_puff1.spr";
-
-				path[17] += Com_RandomLong(0, 3);
-				te = gEngfuncs.pEfxAPI->R_DefaultSprite( pTrace->endpos,
-									gEngfuncs.pEventAPI->EV_FindModelIndex(path), 30.0f );
-			}
-			else
-			{
-				te = gEngfuncs.pEfxAPI->R_DefaultSprite( pTrace->endpos,
-									gEngfuncs.pEventAPI->EV_FindModelIndex("sprites/fast_wallpuff1.spr"), 30.0f );
-			}
-
-			if( te )
-			{
-				te->callback = EV_WallPuff_Wind;
-				te->hitcallback = EV_HugWalls;
-				te->flags |= FTENT_COLLIDEALL | FTENT_CLIENTCUSTOM;
-				te->entity.curstate.rendermode = kRenderTransAdd;
-				te->entity.curstate.rendercolor.r = r;
-				te->entity.curstate.rendercolor.g = g;
-				te->entity.curstate.rendercolor.b = b;
-				te->entity.curstate.renderamt = Com_RandomLong( 100, 180 );
-				te->entity.curstate.scale = 0.5;
-				te->entity.baseline.origin = (25 + Com_RandomLong( 0, 4 ) ) * pTrace->plane.normal;
-			}*/
-
 			EV_CS16Client_CreateSmoke( SMOKE_WALLPUFF, pTrace->endpos, pTrace->plane.normal, 25, 0.5, r, g, b, true );
 		}
 	}

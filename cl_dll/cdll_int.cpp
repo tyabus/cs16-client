@@ -35,7 +35,8 @@ cl_enginefunc_t gEngfuncs = { };
 render_api_t gRenderAPI = { };
 mobile_engfuncs_t gMobileAPI = { };
 CHud gHUD;
-int g_iXash = 0; // indicates a buildnum
+int g_iXash = 0; // indicates an original xash3d buildnum
+int g_iXashFWGS = 0; // indicates an xash3d fwgs buildnum
 int g_iMobileAPIVersion = 0;
 
 void InitInput (void);
@@ -58,6 +59,7 @@ int DLLEXPORT Initialize( cl_enginefunc_t *pEnginefuncs, int iVersion )
 	gEngfuncs = *pEnginefuncs;
 
 	g_iXash = (int)CVAR_GET_FLOAT("build");
+	g_iXashFWGS = (int)CVAR_GET_FLOAT("host_build");
 
 	Game_HookEvents();
 
@@ -325,7 +327,8 @@ int DLLEXPORT HUD_GetRenderInterface( int version, render_api_t *renderfuncs, re
 
 	// we have here a Host_Error, so check Xash for version
 #ifdef __ANDROID__
-	if( g_iXash < 3224 )
+	// 1200 = 0.19.2 release
+	if( g_iXash < 3224 || g_iXashFWGS < 1200 )
 	{
 		gRenderAPI.Host_Error("Xash3D Android version check failed!\nPlease update your Xash3D Android!\n");
 	}

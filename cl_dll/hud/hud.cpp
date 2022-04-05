@@ -73,14 +73,6 @@ void __CmdFunc_InputCommandSpecial()
 #endif
 }
 
-void __CmdFunc_GunSmoke()
-{
-	if( gHUD.cl_gunsmoke->value )
-		gEngfuncs.Cvar_SetValue( "cl_gunsmoke", 0 );
-	else
-		gEngfuncs.Cvar_SetValue( "cl_gunsmoke", 1 );
-}
-
 #define XASH_GENERATE_BUILDNUM
 
 #if defined(XASH_GENERATE_BUILDNUM)
@@ -147,7 +139,6 @@ void __CmdFunc_MouseSucksClose( void ) { evdev_open = false; }
 void CHud :: Init( void )
 {
 	HOOK_COMMAND( "special", InputCommandSpecial );
-	//HOOK_COMMAND( "gunsmoke", GunSmoke );
 
 #ifdef __ANDROID__
 	HOOK_COMMAND( "evdev_mouseopen", MouseSucksOpen );

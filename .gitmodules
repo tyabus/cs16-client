@@ -1,7 +1,6 @@
 [submodule "yapb"]
 	path = 3rdparty/yapb
-	url = https://github.com/jeefo/yapb
-
+	url = https://github.com/yapb/yapb
 [submodule "android/extras_src/extras"]
 	path = 3rdparty/extras
 	url = https://bitbucket.org/SergioPoverony/cs16client-vgui-menus

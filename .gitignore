@@ -42,6 +42,9 @@
 *.idb
 *.ilk
 *.autosave
+.vs/
+Release/
+Debug/
 
 android/pak/
 android/assets/extras.pak
